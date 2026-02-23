@@ -117,6 +117,139 @@ fieldset > ol li input {
     width: 60px;
 }
 
+/* =====================================
+   EXERCISE 1 – MATCHING LAYOUT
+   ===================================== */
+
+.matching-exercise {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background: #f9f9f9;
+  margin-top: 20px;
+}
+
+/* Column A & B side by side */
+
+.columns-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.column-a ol,
+.column-b ul {
+  padding-left: 20px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.column-b ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Answers section */
+
+.answers-wrapper {
+  margin-top: 30px;
+}
+
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 15px;
+}
+
+.answers-grid label {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.answers-grid input {
+  width: 45px;
+  padding: 4px;
+  font-size: 1rem;
+}
+
+/* =====================================
+   RESPONSIVE (only for small screens)
+   ===================================== */
+
+@media (max-width: 768px) {
+
+  .columns-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .answers-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+/* =====================================
+   PRINT VERSION – OPTIMIZED FOR LETTER
+   ===================================== */
+
+@page {
+  size: Letter;
+  margin: 0.8in;
+}
+
+@media print {
+
+  body {
+    font-size: 10.8pt;
+    line-height: 1.35;
+  }
+
+  .matching-exercise {
+    background: none;
+    border: 1px solid #000;
+    padding: 15px;
+    
+  }
+
+  .columns-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .column-a ol,
+  .column-b ul {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+
+  .answers-wrapper {
+    margin-top: 20px;
+  }
+
+  .answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .answers-grid label {
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  .answers-grid input {
+    width: 40px;
+    padding: 3px;
+    border: 1px solid #000;
+  }
+
+}
+
 /* ===============================
    EXERCISE 1 – PROFESSIONAL QUIZ
    =============================== */
@@ -419,10 +552,17 @@ fieldset > ol li input {
 
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
   font-size: 1rem;
   resize: vertical;
-  min-height: 120px;
+
+}
+
+/* Compact size for Grammar Exercise 2 */
+
+#exercise2-heading + p + form textarea {
+  height: 48px;   /* suficiente para una oración compuesta */
+  line-height: 1.4;
 }
 
 /* Print version */
@@ -546,160 +686,173 @@ By the end of the workshop, students will be able to accurately identify, analyz
 
 <section aria-labelledby="exercise1-heading">
 
-<h3 id="exercise1-heading">Exercise 1 – Logical Clause Matching</h3>
+<h3>Exercise 1 – Logical Clause Matching</h3>
 
-<p id="ex1-instructions">
-Match each clause in Column A with the most logical ending in Column B. Write only the corresponding letter.
-</p>
+<div class="matching-exercise">
 
-<h4>Column A</h4>
-<ol>
-<li>If AI systems internalize biased data,</li>
-<li>If governments regulate AI strictly,</li>
-<li>If I had relied less on automation during university,</li>
-<li>If an assistant processes biometric information,</li>
-<li>If machines become emotionally intelligent,</li>
-<li>If users misunderstand algorithms,</li>
-<li>If developers had prioritized ethics,</li>
-<li>If an AI predicts behavior accurately,</li>
-<li>If I were dependent on digital assistants,</li>
-<li>If companies had disclosed policies clearly,</li>
-</ol>
+  <p class="instruction">
+    Match each clause in Column A with the most logical ending in Column B.
+    Write the correct letter (A–J) in the answer box.
+  </p>
 
-<h4>Column B</h4>
-<ol type="a">
-<li>they would have prevented backlash.</li>
-<li>it stores sensitive data permanently.</li>
-<li>they replicate inequalities.</li>
-<li>innovation might slow temporarily.</li>
-<li>I would have developed stronger skills.</li>
-<li>they will make uninformed decisions.</li>
-<li>it can influence markets.</li>
-<li>society would redefine relationships.</li>
-<li>I would struggle without technology.</li>
-<li>public trust would be higher today.</li>
-</ol>
+  <div class="columns-wrapper">
 
-<form aria-describedby="ex1-instructions">
-<fieldset>
-<legend>Answers</legend>
+    <div class="column-a">
+      <h4>Column A</h4>
+      <ol>
+        <li>If AI assistants misinterpret a voice command,</li>
+        <li>If users rely excessively on automation,</li>
+        <li>If data privacy regulations are ignored,</li>
+        <li>If chatbots are trained with biased data,</li>
+        <li>If an AI system crashes during a task,</li>
+        <li>If voice assistants recognize emotional tone,</li>
+        <li>If developers fail to update algorithms,</li>
+        <li>If productivity tools are integrated effectively,</li>
+        <li>If ethical concerns are addressed proactively,</li>
+        <li>If people understand the limits of AI,</li>
+      </ol>
+    </div>
 
-<ol class="answer-list">
-<li><label for="m1">Answer for sentence 1</label>
-<input type="text" id="m1" name="m1"></li>
+    <div class="column-b">
+      <h4>Column B</h4>
+      <ul>
+        <li>A. they may increase efficiency significantly.</li>
+        <li>B. users might become less critical thinkers.</li>
+        <li>C. serious trust issues could arise.</li>
+        <li>D. it may produce discriminatory responses.</li>
+        <li>E. human intervention becomes necessary.</li>
+        <li>F. communication may feel more natural.</li>
+        <li>G. performance might deteriorate over time.</li>
+        <li>H. misunderstandings can occur.</li>
+        <li>I. public confidence may improve.</li>
+        <li>J. expectations remain realistic.</li>
+      </ul>
+    </div>
 
-<li><label for="m2">Answer for sentence 2</label>
-<input type="text" id="m2" name="m2"></li>
+  </div>
 
-<li><label for="m3">Answer for sentence 3</label>
-<input type="text" id="m3" name="m3"></li>
+  <!-- ANSWERS BELOW -->
+  <div class="answers-wrapper">
 
-<li><label for="m4">Answer for sentence 4</label>
-<input type="text" id="m4" name="m4"></li>
+    <h4>Your Answers</h4>
 
-<li><label for="m5">Answer for sentence 5</label>
-<input type="text" id="m5" name="m5"></li>
+    <div class="answers-grid">
 
-<li><label for="m6">Answer for sentence 6</label>
-<input type="text" id="m6" name="m6"></li>
+      <div>
+        <label for="a1">Answer for sentence 1</label>
+        <input type="text" id="a1" maxlength="1">
 
-<li><label for="m7">Answer for sentence 7</label>
-<input type="text" id="m7" name="m7"></li>
+        <label for="a2">Answer for sentence 2</label>
+        <input type="text" id="a2" maxlength="1">
 
-<li><label for="m8">Answer for sentence 8</label>
-<input type="text" id="m8" name="m8"></li>
+        <label for="a3">Answer for sentence 3</label>
+        <input type="text" id="a3" maxlength="1">
 
-<li><label for="m9">Answer for sentence 9</label>
-<input type="text" id="m9" name="m9"></li>
+        <label for="a4">Answer for sentence 4</label>
+        <input type="text" id="a4" maxlength="1">
 
-<li><label for="m10">Answer for sentence 10</label>
-<input type="text" id="m10" name="m10"></li>
-</ol>
+        <label for="a5">Answer for sentence 5</label>
+        <input type="text" id="a5" maxlength="1">
+      </div>
 
-</fieldset>
-</form>
+      <div>
+        <label for="a6">Answer for sentence 6</label>
+        <input type="text" id="a6" maxlength="1">
+
+        <label for="a7">Answer for sentence 7</label>
+        <input type="text" id="a7" maxlength="1">
+
+        <label for="a8">Answer for sentence 8</label>
+        <input type="text" id="a8" maxlength="1">
+
+        <label for="a9">Answer for sentence 9</label>
+        <input type="text" id="a9" maxlength="1">
+
+        <label for="a10">Answer for sentence 10</label>
+        <input type="text" id="a10" maxlength="1">
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<section class="exercise-two" aria-labelledby="exercise2-heading">
+
+  <h3 id="exercise2-heading">
+    Exercise 2 – Error Analysis and Reconstruction
+  </h3>
+
+  <p>
+    Each sentence contains a mistake in the conditional structure. 
+    Rewrite each sentence correctly.
+  </p>
+
+  <form>
+
+    <ol>
+
+      <li>
+        <p>If I will see her tomorrow, I tell her the truth.</p>
+        <textarea id="r1" name="r1" rows="2" aria-label="Rewrite sentence 1"></textarea>
+      </li>
+
+      <li>
+        <p>If he studied harder, he will pass the exam.</p>
+        <textarea id="r2" name="r2" rows="2" aria-label="Rewrite sentence 2"></textarea>
+      </li>
+
+      <li>
+        <p>If they would have listened to the advice, they will not fail.</p>
+        <textarea id="r3" name="r3" rows="2" aria-label="Rewrite sentence 3"></textarea>
+      </li>
+
+      <li>
+        <p>If she knew about the problem, she will help us.</p>
+        <textarea id="r4" name="r4" rows="2" aria-label="Rewrite sentence 4"></textarea>
+      </li>
+
+      <li>
+        <p>If I had enough money, I would bought the house.</p>
+        <textarea id="r5" name="r5" rows="2" aria-label="Rewrite sentence 5"></textarea>
+      </li>
+
+      <li>
+        <p>If you heat water at 100°C, it would boil.</p>
+        <textarea id="r6" name="r6" rows="2" aria-label="Rewrite sentence 6"></textarea>
+      </li>
+
+      <li>
+        <p>If we won the match yesterday, we would celebrate now.</p>
+        <textarea id="r7" name="r7" rows="2" aria-label="Rewrite sentence 7"></textarea>
+      </li>
+
+      <li>
+        <p>If she would practice more, she improved her pronunciation.</p>
+        <textarea id="r8" name="r8" rows="2" aria-label="Rewrite sentence 8"></textarea>
+      </li>
+
+      <li>
+        <p>If I knew the answer, I will tell you.</p>
+        <textarea id="r9" name="r9" rows="2" aria-label="Rewrite sentence 9"></textarea>
+      </li>
+
+      <li>
+        <p>If they had leave earlier, they would catch the train.</p>
+        <textarea id="r10" name="r10" rows="2" aria-label="Rewrite sentence 10"></textarea>
+      </li>
+
+    </ol>
+
+  </form>
+
+
 
 </section>
 
 
-<section aria-labelledby="exercise2-heading">
-
-<h3 id="exercise2-heading">Exercise 2 – Error Analysis and Reconstruction</h3>
-
-<p id="ex2-instructions">
-Each sentence below contains a grammatical or logical error related to conditional forms. 
-Read the incorrect sentence carefully and rewrite it correctly in the space provided.
-</p>
-
-<form aria-describedby="ex2-instructions">
-
-<ol>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If AI will replace too many jobs, unemployment increases dramatically.</p>
-<label for="r1">Correct version:</label>
-<textarea id="r1" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If I would trust algorithms blindly, I risk manipulation.</p>
-<label for="r2">Correct version:</label>
-<textarea id="r2" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If developers had anticipate the consequences, they would avoid ethical scandals.</p>
-<label for="r3">Correct version:</label>
-<textarea id="r3" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If machines think like humans, they would misunderstood emotions.</p>
-<label for="r4">Correct version:</label>
-<textarea id="r4" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If users had read the privacy agreement, they will know how their data was used.</p>
-<label for="r5">Correct version:</label>
-<textarea id="r5" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If I depend entirely on automation, I would lose critical thinking skills.</p>
-<label for="r6">Correct version:</label>
-<textarea id="r6" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If companies were more transparent, public trust will increase.</p>
-<label for="r7">Correct version:</label>
-<textarea id="r7" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If the algorithm had been unbiased, it would predicts fair outcomes.</p>
-<label for="r8">Correct version:</label>
-<textarea id="r8" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If AI assistants become self-learning, they would have transformed society already.</p>
-<label for="r9">Correct version:</label>
-<textarea id="r9" rows="3"></textarea>
-</li>
-
-<li>
-<p><strong>Incorrect sentence:</strong> If people had questioned technology earlier, they would question it more today.</p>
-<label for="r10">Correct version:</label>
-<textarea id="r10" rows="3"></textarea>
-</li>
-
-</ol>
-
-</form>
-
-</section>
 
 <section id="reading-section">
 
@@ -1012,7 +1165,8 @@ Select one option and justify your answer.
     </button>
   </div>
 
-</div>
+</div>    
+
 
 <script>
 function speakDescription(number) {
@@ -1052,5 +1206,4 @@ function speakDescription(number) {
 </main>
 
 </body>
-
 </html>
